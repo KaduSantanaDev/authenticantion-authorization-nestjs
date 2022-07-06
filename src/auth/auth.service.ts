@@ -16,7 +16,7 @@ export class AuthService {
     }
 
     public async createAccessToken(userId: string): Promise<string> {
-        return sign({ userId }, 'batata1234', { expiresIn: '9999s' })
+        return sign({ userId }, process.env.JWT_SECRET,, { expiresIn: '9999s' })
     }
 
     public async validateUser(jwtPayload: JwtPayload): Promise<User> {
